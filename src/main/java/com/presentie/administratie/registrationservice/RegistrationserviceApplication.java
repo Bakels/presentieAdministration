@@ -26,8 +26,4 @@ public class RegistrationserviceApplication {
 	    return new StatusReceiver();
     }
 
-    @Bean
-	public CommandLineRunner runner(){
-    	return new RabbitAmqpRunner();
-	}
 }
