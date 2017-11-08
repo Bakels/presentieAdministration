@@ -26,6 +26,8 @@ public class Status  {
     @JsonProperty
     private LocalDate date;
 
+    private boolean pending = true;
+
     public Status(String name, boolean present, LocalDate date) {
         this.name = name;
         this.present = present;
