@@ -1,5 +1,6 @@
 package com.presentie.administratie.registrationservice;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.presentie.administratie.registrationservice.receivers.StatusReceiver;
 import org.springframework.amqp.core.Queue;
 import org.springframework.boot.CommandLineRunner;
@@ -26,4 +27,8 @@ public class RegistrationserviceApplication {
 	    return new StatusReceiver();
     }
 
+    @Bean
+	ObjectMapper mapper(){
+    	return new ObjectMapper();
+	}
 }

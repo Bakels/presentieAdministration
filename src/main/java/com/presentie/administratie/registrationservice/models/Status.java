@@ -5,23 +5,31 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.Calendar;
+import java.util.Date;
 
 @Getter
 @Setter
 @NoArgsConstructor
-public class Status {
+public class Status  {
     @JsonProperty(required = true)
     private String name;
     @JsonProperty(required = true)
     private boolean present;
-    @JsonProperty(required = false)
-    private Calendar date;
+    @JsonProperty
+    private LocalDate date;
 
-    public Status(String name, boolean present) {
+    public Status(String name, boolean present, LocalDate date) {
         this.name = name;
         this.present = present;
-        this.date = Calendar.getInstance();
-        this.date.add(Calendar.DATE, 1);
+        this.date = date;
     }
+
 }

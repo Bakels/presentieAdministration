@@ -25,24 +25,4 @@ public class StatusController {
         return statusList;
     }
 
-    @RequestMapping(path = "/add", method = RequestMethod.POST)
-    public void addStatusToList(@RequestBody Status status){
-        statusList.add(status);
-
-
-    }
-
-    @RequestMapping(path = "/test")
-    public void test(){
-        Status status = new Status("Rico", true);
-
-        RestTemplate build = new RestTemplateBuilder().build();
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Type", "application/json");
-        HttpEntity<Status> entity = new HttpEntity<>(status, headers);
-
-        Status status1 = build.postForObject("http://localhost:8001/api/status/add", entity, Status.class);
-    }
-
 }
